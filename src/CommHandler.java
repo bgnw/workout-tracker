@@ -30,9 +30,13 @@ public class CommHandler {
 
             for (int i = 0; i < updates.length(); i++) {
                 lastUpdateID = (int) updates.getJSONObject(i).get("update_id");
+
                 JSONObject msgWrapper = updates.getJSONObject(i).getJSONObject("message");
                 JSONObject chatInfo = msgWrapper.getJSONObject("chat");
                 JSONObject senderInfo = msgWrapper.getJSONObject("from");
+
+                if (!msgWrapper.has("text"))
+                    continue;
 
                 messages.add(new UserMessage(
                         String.valueOf(senderInfo.getInt("id")),
