@@ -9,9 +9,8 @@ public class Main {
         TimerTask checkForUpdates = new TimerTask() {
             @Override
             public void run() {
-                try {
-                    CommHandler.checkForUpdates();
-                } catch (Exception e) {}
+                MessageInterpreter.updateQueue();
+                MessageInterpreter.handleMessages();
             }
         };
 
