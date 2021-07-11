@@ -10,7 +10,7 @@ public class Main {
             @Override
             public void run() {
                 try {
-                    APIHandler.GetRequest();
+                    CommHandler.checkForUpdates();
                 } catch (Exception e) {}
             }
         };
